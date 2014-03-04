@@ -9,10 +9,10 @@ import parse.normalise as normalise
 
 import store.store as store
 
-consumer_key="eldXwWalkcHBx5m7e1w"
-consumer_secret="khvcTL5p0Wuvkyxj997etqSm427o7mBKqvLFJiYq9c"
-access_key = "15254060-uGONo6ewBK6S7Z0dj2GclMWhXdOyWiGvOHlWpRvuu"
-access_secret = "inDXleaIVNzbUVpnBqOkAbGElXeyoulmhSHEWL6T64"
+consumer_key=""
+consumer_secret=""
+access_key = ""
+access_secret = ""
 
 
 auth = OAuthHandler(consumer_key, consumer_secret)
