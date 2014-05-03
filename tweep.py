@@ -14,7 +14,6 @@ consumer_secret=""
 access_key = ""
 access_secret = ""
 
-
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 
@@ -25,8 +24,9 @@ class CustomStreamListener(StreamListener):
         tweetjson = serialise.stream_handle(data).json_unserialise()
         try:
             if tweetjson["text"] and tweetjson["lang"] == "en":
+                tweetuser = normalise.normalise_text(tweetjson['user']['screen_name']).normalise_twitter_json()
                 tweetjson = normalise.normalise_text(tweetjson['text']).normalise_twitter_json()
-                tweetjson = serialise.stream_handle(tweetjson).json_serialise()
+                tweetjson = tweetuser + ":::" + tweetjson
                 store.storetweet(tweetjson)
         except Exception, e:
             print "Serialisation issue: ", e
